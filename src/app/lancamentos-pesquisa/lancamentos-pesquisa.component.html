@@ -48,14 +48,14 @@
                   {{lanc.descricao}}
               </td>
               <td>
-                {{lanc.dataVencimento}}
+                {{lanc.dataVencimento | date: 'dd/MM/y'}}
               </td>
               <td>
-                {{lanc.dataPagamento}}
+                {{lanc.dataPagamento |date: 'dd/MM/y'}}
             </td>
             <!--<td [ngStyle]="{ color: lanc.tipo == 'DESPESA' ? 'red' : 'blue' }" > -->
             <td [style.color]=" lanc.tipo == 'DESPESA' ? 'red' : 'blue' " ><!--Aqui posso fazer um binding direto na propriedade color com [style.color]-->
-              {{lanc.valor}}
+              {{lanc.valor | currency: 'BRL'}}
           </td>
           <td>
             {{lanc.pessoa}}
