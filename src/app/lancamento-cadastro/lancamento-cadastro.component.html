@@ -7,8 +7,11 @@
         </div>
 
         <div class="ui-g-12">
-            <p-selectButton [options]="tipos" #tipo ></p-selectButton>
+
+            <p-selectButton [options]="tipos"  #tipo ></p-selectButton>
+            <p>Item Selecionado {{tipo.value}} </p>
         </div>
+
 
         <div class="ui-g-6 ui-md-3 ui-fluid"> <!--ui-md-3 diz que quando a tela min-width: 768px a div ocupara 3 colunas da tela-->
            <label>Vencimento</label>
@@ -33,13 +36,13 @@
        </div>
 
        <div class="ui-g-12 ui-md-6 ui-fluid">
-        <label>Categoria</label>
-        <input pInputText type="text">
+        <label>Categoria - {{categoria.value}}</label>
+        <p-dropdown [options]="categorias" placeholder="Selecione" #categoria></p-dropdown>
        </div>
 
        <div class="ui-g-12 ui-md-6 ui-fluid">
-        <label>Pessoa</label>
-        <input pInputText type="text">
+        <label>Pessoa {{pessoa.value}}</label>
+        <p-dropdown [options]="pessoas" [filter]="true" placeholder="Selecione" #pessoa></p-dropdown>
        </div>
 
        <div class="ui-g-12 ui-fluid">
