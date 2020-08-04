@@ -32,7 +32,9 @@
 
        <div class="ui-g-12 ui-md-3 ui-fluid">
         <label>Valor</label>
-        <input pInputText type="text" placeholder="0,00">
+        <p-inputNumber mode="currency" currency="BRL" locale="pt-BR" [minFractionDigits]="2" step="0.01"></p-inputNumber>
+
+
        </div>
 
        <div class="ui-g-12 ui-md-6 ui-fluid">
