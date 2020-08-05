@@ -1,4 +1,5 @@
 <div class="containner">
+  <!-- <form #lancamentoForm="ngForm"> Isso só é possivel apos fazer o import de FormsModule em app.module.ts  -->
   <form>
 
     <div class="ui-g">
@@ -26,8 +27,17 @@
        </div>
 
        <div class="ui-g-12 ui-md-9 ui-fluid">
-        <label>Descrição</label>
-        <input pInputText type="text">
+        <label>Descrição {{descricao.errors | json}} </label>
+        <input pInputText type="text" name="descricao"
+               ngModel #descricao="ngModel" required minlength="5">
+
+         <p-message *ngIf="descricao.hasError('required') && descricao.dirty"
+               severity="error" text="Informe uma Descrição" ></p-message>
+        <p-message *ngIf="descricao.hasError('minlength') && descricao.dirty"
+               severity="error" text="Minimo {{descricao.errors.minlength.requiredLength}} de letras.
+                                                Você digitou apenas {{descricao.errors.minlength.actualLength}} letras" ></p-message>
+
+
        </div>
 
        <div class="ui-g-12 ui-md-3 ui-fluid">
@@ -51,6 +61,7 @@
         <label>Observação</label>
         <textarea pInputTextarea rows="3" ></textarea>
        </div>
+
 
        <div class="ui-g-12">
           <button pButton type="submit" label="Salvar"></button>
